@@ -1,8 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import { rootReducer } from './rootReducer'
-// import appReducer from './features/app/appSlice'
-// import todoReducer from './features/todos/todosSlice'
 
 
 const store = configureStore({

@@ -12,7 +12,15 @@ const todoSlice = createSlice({
     reducers: {
         sendTodoItem(state, action) {
             const { text } = action.payload
-            state.todoList = [...state.todoList, { text, id: +`${Date.now()}`, completed: false }]
+            const newItem = {
+                text,
+                id: +`${Date.now()}`,
+                completed: false,
+            }
+            state.todoList = [
+                ...state.todoList, 
+                newItem
+            ]
         },
         changeTodoItemText(state, action) {
             const { text, id } = action.payload
