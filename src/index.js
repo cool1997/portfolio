@@ -6,7 +6,8 @@ import {HashRouter} from 'react-router-dom'
 
 import store from './App/store'
 
-import './index.css'
+import './index.scss'
+import './assets/css/vars.css'
 
 
 const render = () => {

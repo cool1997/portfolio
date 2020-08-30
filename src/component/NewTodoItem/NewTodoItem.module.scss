@@ -1,0 +1,6 @@
+.NewTodoItem {
+    & .field {
+        background-color: var(--main_color);
+        color: var(--font_main_color);
+    }
+}

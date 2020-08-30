@@ -7,6 +7,8 @@ import { sendTodoItem } from '../../slice/todos/todoSlice'
 import { Component } from '../../common/FormsControls/FormsControls'
 import { maxLengthCreator } from '../../common/utils/validators'
 
+import styles from './NewTodoItem.module.scss'
+
 
 const NewTodoItem = ({ handleSubmit, ...props }) => {
 	const dispatch = useDispatch()
@@ -22,16 +24,22 @@ const NewTodoItem = ({ handleSubmit, ...props }) => {
 
 
 	return (
-		<form className={`input-group mb-2`} onSubmit={handleSubmit(onSubmit)}>
+		<form 
+			className={`${styles.NewTodoItem} input-group mb-2`} 
+			onSubmit={handleSubmit(onSubmit)}>
+
 			<Field
 				validate={[maxLength]}
 				component={Component.input}
-				className={`form-control`}
+				className={`${styles.field} form-control`}
 				type="text"
 				name="todo"
 				placeholder={`New todo`}
-				autocomplete="off" />
-			<button className={`btn btn-outline-success form-control col-2`}>send</button>
+				autoComplete="off" />
+			<button className={`btn btn-outline-success form-control col-2`}>
+				send
+			</button>
+			
 		</form>
 	)
 }

@@ -1,3 +1,26 @@
-.app {
-  
+.App {
+    min-width: 100vw;
+    min-height: 100vh;
+
+    background-color: var(--main_color);
+
+    & .header {
+        display: flex;
+
+        background-color: var(--light_color);
+
+        & .toggleTheme {
+            margin-left: auto;
+            background: transparent;
+            border: none;
+
+            color: var(--font_main_color);
+
+            outline: none;
+        }
+    }
+
+    & .main {
+        
+    }
 }

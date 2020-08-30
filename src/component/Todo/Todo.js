@@ -5,11 +5,13 @@ import { NewTodoItem } from '../NewTodoItem/NewTodoItem'
 import { TodoList } from '../TodoList/TodoList'
 import { SortControls } from '../SortControls/SortControls'
 
+import styles from './Todo.module.scss'
+
 
 const Todo = ({ ...props }) => {
 	return (
-		<section>
-			<h2 className={`mb-4`}>Todo list</h2>
+		<section className={`${styles.Todo}`}>
+			<h2 className={`${styles.title} mb-4`}>Todo list</h2>
 			<NewTodoItem />
 			<SortControls />
 			<TodoList />

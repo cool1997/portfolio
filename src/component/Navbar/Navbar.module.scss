@@ -1,0 +1,9 @@
+.Navbar {    
+    & .list {
+        & .item {
+            & .link {
+                color: var(--font_main_color);
+            }
+        }
+    }
+}
