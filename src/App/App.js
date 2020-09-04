@@ -8,6 +8,7 @@ import { initializedSuccess } from '../slice/app/appSlice'
 import { Todo } from '../component/Todo/Todo'
 import { Navbar } from '../component/Navbar/Navbar'
 import { Preloader } from '../common/Preloader/Preloader'
+import { ToggleTheme } from '../component/ToggleTheme/ToggleTheme'
 
 import styles from './App.module.scss'
 
@@ -18,12 +19,7 @@ const App = ({ ...props }) => {
 	const dispatch = useDispatch()
 
 	const { initialized } = useSelector((state) => state.app)
-
-	const Handle = {
-		toggleTheme: () => {
-			setIsDarkTheme((prev) => !prev)
-		}
-	}
+	
 
 	useEffect(() => {
 		dispatch(initializedSuccess())
@@ -37,11 +33,7 @@ const App = ({ ...props }) => {
 				<header className={`${styles.header}`}>
 					<h1 className={`visually-hidden`}>Todo list</h1>
 					<Navbar />
-					<button 
-						className={`${styles.toggleTheme} btn`}
-						onClick={Handle.toggleTheme}>
-						{`Theme ${!isDarkTheme ? `dark` : `light`}`}
-					</button>
+					<ToggleTheme isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
 				</header>
 				<main className={`${styles.main} container pt-4`}>
 					<Switch>

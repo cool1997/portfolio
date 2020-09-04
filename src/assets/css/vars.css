@@ -5,9 +5,10 @@
   
   --main_color: #f2f2f2;
   --light_color: #999999;
+  --success_color: #009700;
 
 
-  --contrast_color: #1698d9;
+  --contrast_color: #333333;
   --contrast_hover_color: #2ea8e6;
 }
 
@@ -19,6 +20,6 @@
   --main_color: #333333;
   --light_color: #666666;
 
-  --contrast_color: #d91667;
+  --contrast_color: #f2f2f2;
   --contrast_hover_color: #e62e7a;
 }

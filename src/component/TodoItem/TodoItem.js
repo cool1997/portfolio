@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 
 import { changeTodoItemText, toggleCompleted, deleteTodoItem } from '../../slice/todos/todoSlice'
 
+import styles from './TodoItem.module.scss'
+
 
 const TodoItem = ({ text, id, completed }) => {
     const dispatch = useDispatch()
@@ -38,24 +40,26 @@ const TodoItem = ({ text, id, completed }) => {
     }
 
     return (
-        <li className={`list-group-item`}>
+        <li className={`${styles.TodoItem}`}>
             <div className={`input-group `}>
                 <div className={`input-group-prepend`}>
-                    <div className={`input-group-text ${!completed ? `border-warning` : `border-success`}`}>
+                    <div className={`${styles.check} ${completed ? styles.success : ``} input-group-text ${!completed ? `border-warning` : `border-success`}`}>
                         <input
                             checked={completed}
                             type='checkbox'
-                            onChange={() => Handler.toggleCompleted(id)} />
+                            onChange={() => Handler.toggleCompleted(id)}
+                        />
                     </div>
                 </div>
                 <input
                     onKeyPress={(evt) => evt.key === `Enter` && Handler.saveChanges()}
                     ref={inputBodyRef}
                     type='text'
-                    className={`form-control bg-light ${!completed ? `border-warning` : `border-success`}`}
+                    className={`${styles.todoBody} form-control ${!completed ? `border-warning` : `border-success`}`}
                     value={text}
                     onChange={evt => Handler.changeField(evt.target.value, id)}
-                    disabled={disabled} />
+                    disabled={disabled} 
+                />
                 <button
                     className={`btn btn-primary form-control col-2`}
                     onClick={() => {

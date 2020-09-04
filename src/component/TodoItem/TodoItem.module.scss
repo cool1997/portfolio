@@ -1,0 +1,16 @@
+.TodoItem {
+    margin-bottom: 10px;
+    list-style: none;
+
+    & .check {
+        background-color: var(--main_color);
+        &.success {
+            background-color: var(--success_color);
+        }
+    }
+
+    & .todoBody {
+        background-color: var(--main_color);
+        color: var(--font_main_color);
+    }
+}
