@@ -7,10 +7,16 @@ import styles from './Navbar.module.scss'
 
 const Navbar = ({ ...props }) => {
 	return (
-		<nav className={`${styles.Navbar} navbar navbar-expand navbar-light`}>
-			<ul className={`${styles.list} navbar-nav`}>
-				<li className={`${styles.item} nav-item`}>
-					<NavLink className={`${styles.link} navbar-brand`} to={`/todo`}>Todo list</NavLink>
+		<nav className={`${props.className} ${styles.Navbar}`}>
+			<ul className={`${styles.list}`}>
+				<li className={`${styles.item}`}>
+					<NavLink className={`${styles.link}`} to={`/todo`}>Входящие</NavLink>
+				</li>
+				<li className={`${styles.item}`}>
+					<NavLink className={`${styles.link}`} to={`/todo`}>Сегодня</NavLink>
+				</li>
+				<li className={`${styles.item}`}>
+					<NavLink className={`${styles.link}`} to={`/todo`}>Запланировать</NavLink>
 				</li>
 			</ul>
 		</nav>

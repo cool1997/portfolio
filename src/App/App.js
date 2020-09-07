@@ -50,7 +50,7 @@ const App = ({ ...props }) => {
 						toggle={() => Handle.toggle(setIsDarkTheme)} 
 					/>
 				</header>
-				{isActiveNavbar && <Navbar />}
+				{isActiveNavbar && <Navbar className={styles.nav}/>}
 				<main className={`${styles.main} container pt-4`}>
 					<Switch>
 						<Route path='/todo' render={() => <Todo />} />
