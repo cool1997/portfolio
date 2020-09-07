@@ -10,13 +10,13 @@ const Navbar = ({ ...props }) => {
 		<nav className={`${props.className} ${styles.Navbar}`}>
 			<ul className={`${styles.list}`}>
 				<li className={`${styles.item}`}>
-					<NavLink className={`${styles.link}`} to={`/todo`}>Входящие</NavLink>
+					<NavLink className={`${styles.link}`} to={`/inbox`}>Входящие</NavLink>
 				</li>
 				<li className={`${styles.item}`}>
-					<NavLink className={`${styles.link}`} to={`/todo`}>Сегодня</NavLink>
+					<NavLink className={`${styles.link}`} to={`/today`}>Сегодня</NavLink>
 				</li>
 				<li className={`${styles.item}`}>
-					<NavLink className={`${styles.link}`} to={`/todo`}>Запланировать</NavLink>
+					<NavLink className={`${styles.link}`} to={`/calendar`}>Календарь</NavLink>
 				</li>
 			</ul>
 		</nav>

@@ -5,7 +5,9 @@ import { compose } from 'redux'
 
 import { initializedSuccess } from '../slice/app/appSlice'
 
-import { Todo } from '../component/Todo/Todo'
+import { Inbox } from '../component/Inbox/Inbox'
+import { Today } from '../component/Today/Today'
+import { Calendar } from '../component/Calendar/Calendar'
 import { Navbar } from '../component/Navbar/Navbar'
 import { Preloader } from '../common/Preloader/Preloader'
 import { ToggleTheme } from '../component/ToggleTheme/ToggleTheme'
@@ -53,8 +55,10 @@ const App = ({ ...props }) => {
 				{isActiveNavbar && <Navbar className={styles.nav}/>}
 				<main className={`${styles.main} container pt-4`}>
 					<Switch>
-						<Route path='/todo' render={() => <Todo />} />
-						<Route path='/' exact render={() => <Todo />} />
+						<Route path='/inbox' render={() => <Inbox />} />
+						<Route path='/today' render={() => <Today />} />
+						<Route path='/calendar' render={() => <Calendar />} />
+						<Route path='/' exact render={() => <Inbox />} />
 					</Switch>
 				</main>
 				<footer className={`${styles.footer}`}>
