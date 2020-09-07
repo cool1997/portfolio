@@ -1,0 +1,37 @@
+.ToggleNavbar {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    position: relative;
+
+    
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        left: 0;
+        background-color: var(--contrast_color);
+        transition: transform 100ms linear;
+    }
+
+    &::before {
+        transform: translateY(10px)
+    }
+
+    &::after {
+        transform: translateY(-10px)
+    }
+
+    &.active {
+        &::before {
+            transform: rotate(45deg) ;
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+}

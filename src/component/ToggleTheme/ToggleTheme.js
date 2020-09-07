@@ -4,21 +4,15 @@ import { compose } from 'redux'
 import styles from './ToggleTheme.module.scss'
 
 
-const ToggleTheme = ({ isDarkTheme, setIsDarkTheme, ...props }) => {
-    const Handle = {
-        toggleTheme: () => {
-            setIsDarkTheme((prev) => !prev)
-        }
-    }
-
-
+const ToggleTheme = ({ isDarkTheme, toggle, ...props }) => {
     return (
         <button
             className={`
                 ${styles.ToggleTheme} 
                 ${isDarkTheme ? styles.darkTheme : ``} 
                 btn`}
-            onClick={Handle.toggleTheme}>
+            onClick={toggle}
+        >
         </button>
     )
 }
