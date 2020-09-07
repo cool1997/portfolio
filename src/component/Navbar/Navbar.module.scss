@@ -1,6 +1,8 @@
 .Navbar {   
     padding: 20px;
 
+    background-color: var(--theme_color);
+
     & .list {
         display: flex;
         flex-direction: column;

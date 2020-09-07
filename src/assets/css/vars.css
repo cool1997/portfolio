@@ -5,11 +5,17 @@
   
   --main_color: #f2f2f2;
   --light_color: #999999;
+  --theme_color: #aaaaaa;
   --success_color: #009700;
 
 
   --contrast_color: #333333;
   --contrast_hover_color: #2ea8e6;
+
+
+  --mobile_width: 480;
+  --tablet_width: 768px;
+  --desktop_width: 980px;
 }
 
 .darkTheme {
@@ -19,6 +25,7 @@
 
   --main_color: #333333;
   --light_color: #666666;
+  --theme_color: #999999;
 
   --contrast_color: #f2f2f2;
   --contrast_hover_color: #e62e7a;

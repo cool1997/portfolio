@@ -57,8 +57,8 @@ const App = ({ ...props }) => {
 						<Route path='/' exact render={() => <Todo />} />
 					</Switch>
 				</main>
-				<footer>
-
+				<footer className={`${styles.footer}`}>
+				
 				</footer>
 			</div>
 	)
