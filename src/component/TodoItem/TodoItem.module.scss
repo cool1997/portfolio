@@ -1,16 +1,111 @@
 .TodoItem {
-    margin-bottom: 10px;
+    display: grid;
+    grid-template: 
+        'check text change delete'
+        /30px  1fr  70px  30px;
+
+    margin-bottom: var(--size_s);
+    padding: var(--size_s) 0;
+    border-bottom: 1px solid var(--light);
+
     list-style: none;
 
     & .check {
-        background-color: var(--main_color);
+        grid-area: check;
+
+        width: var(--size_m_double);
+        height: var(--size_m_double);
+
+        background-color: var(--light);
+        border: 1px solid var(--dark);
+        border-radius: 50%;
+
+        cursor: pointer;
+
         &.success {
-            background-color: var(--success_color);
+            background-color: var(--success);
         }
     }
 
     & .todoBody {
-        background-color: var(--main_color);
+        grid-area: text;
+        flex-grow: 1;
+
+        background-color: var(--main);
         color: var(--font_main_color);
+        padding: var(--size_s);
+
+        resize: none;
+
+        word-break: break-all;
+        
+    }
+
+    & .btn {
+        border: none;
+        color: var(--font_main_color);
+        background-color: transparent;
+
+        &.change {
+            grid-area: change;
+
+            width: 70px;
+
+            color: var(--primary);
+
+            &:hover {
+                background-color: var(--primary);
+                color: var(--contrast);
+            }
+        }
+        &.delete {
+            grid-area: delete;
+            
+            border-radius: 0 5px 5px 0;
+
+            color: var(--danger);
+
+            &:hover {
+                background-color: var(--danger);
+                color: var(--contrast);
+            }
+        }
     }
 }
+// .TodoItem {
+//     display: flex;
+
+//     margin-bottom: 10px;
+//     list-style: none;
+
+//     & .check {
+//         background-color: var(--main_color);
+//         &.success {
+//             background-color: var(--success_color);
+//         }
+//     }
+
+//     & .todoBody {
+//         flex-grow: 1;
+
+//         background-color: var(--main_color);
+//         color: var(--font_main_color);
+//         padding: 5px;
+        
+//     }
+
+//     & .btn {
+//         border: none;
+//         color: var(--font_main_color);
+
+//         &.change {
+//             background-color: var(--accent_color);
+//             width: 70px;
+//         }
+//         &.delete {
+//             background-color: var(--danger_color);
+//             width: 40px;
+//             border-radius: 0 5px 5px 0;
+//         }
+//     }
+// }

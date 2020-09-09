@@ -1,6 +1,7 @@
-.NewTodoItem {
+.FormTodoItem {
     display: flex;
     flex-direction: column;
+    margin-bottom: var(--size_l_double);
     
     & .containerField {
         margin-bottom: 15px;

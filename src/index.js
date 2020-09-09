@@ -8,6 +8,7 @@ import store from './App/store'
 
 import './index.scss'
 import './assets/css/vars.css'
+import './assets/css/reset.css'
 
 
 const render = () => {

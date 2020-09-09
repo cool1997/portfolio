@@ -1,15 +1,14 @@
 .App {
     display: grid;
     grid-template:
-        'header' 40px 
+        'header' 45px 
         'nav' 
-        'main' 1fr
-        'footer' 100px;
+        'main' 1fr;
 
     min-width: 100vw;
     min-height: 100vh;
 
-    background-color: var(--main_color);
+    background-color: var(--main);
 
     & .nav {
         grid-area: nav;
@@ -22,27 +21,21 @@
         justify-content: space-between;
         align-items: center;
 
-        padding: 5px 20px;
-        background-color: var(--light_color);
+        padding: var(--size_m) var(--size_l_double);
+        background-color: var(--light);
     }
 
     & .main {
         grid-area: main;
-    }
-
-    & .footer {
-        grid-area: footer;
-
-        background-color: var(--light_color);
+        padding: var(--size_m_third) var(--size_l_double);
     }
 }
 
 @media (min-width: 768px) {
     .App {
         grid-template:
-            'header header header'40px 
+            'header header header' 45px 
             'nav    main   main'
-            'footer footer footer'100px 
             /auto 2fr 2fr;
     }
 }

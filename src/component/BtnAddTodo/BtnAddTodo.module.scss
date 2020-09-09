@@ -1,0 +1,51 @@
+.BtnAddTodo {
+    display: flex;
+    align-items: center;
+
+    padding: var(--small_padding);
+    border: none;
+
+    background-color: transparent;
+    color: var(--font_light_color);
+    
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        color: var(--danger_color);
+
+        & .iconAdd {
+            background-color: var(--danger_color);
+
+            &::before,
+            &::after {
+                background-color: var(--main_color);
+            }
+        }
+    }
+
+    & .iconAdd {
+        position: relative;
+        width: 19px;
+        height: 19px;
+        margin-right: 15px;
+
+        border-radius: 50%;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 13px;
+            height: 1px;
+            left: 3px;
+            top: calc(50% - 0.5px);
+            background-color: var(--danger_color);
+        }
+
+        &::after {
+            transform: rotate(90deg);
+        }
+    }
+}

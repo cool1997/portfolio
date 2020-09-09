@@ -1,22 +1,37 @@
 .Navbar {   
-    padding: 20px;
+    width: 300px;
+    padding: var(--middle_padding);
 
     background-color: var(--theme_color);
 
     & .list {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: flex-start;
-
         list-style: none;
         padding: 0;
 
         & .item {
+            
             & .link {
+                display: block;
+                padding: var(--extra_small_padding);
+                padding-left: var(--middle_padding);
+                
                 color: var(--font_main_color);
-                font-size: 20px;
+                font-size: var(--middle_font_size);
+                text-decoration: none;
+                
+                &:hover,
+                &:focus {
+                    background-color: var(--main_color);
+                    outline: none;
+                }
+                
+                &.active {
+                    font-weight: 700;
+                    letter-spacing: 0.5px;
+                    
+                    background-color: var(--main_color);
+                    outline: none;
+                }
             }
         }
     }

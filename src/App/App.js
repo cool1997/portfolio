@@ -17,7 +17,7 @@ import styles from './App.module.scss'
 
 
 const App = ({ ...props }) => {
-	const [isDarkTheme, setIsDarkTheme] = useState(true)
+	const [isDarkTheme, setIsDarkTheme] = useState(false)
 	const [isActiveNavbar, setIsActiveNavbar] = useState(true)
 
 	const dispatch = useDispatch()
@@ -53,7 +53,7 @@ const App = ({ ...props }) => {
 					/>
 				</header>
 				{isActiveNavbar && <Navbar className={styles.nav}/>}
-				<main className={`${styles.main} container pt-4`}>
+				<main className={`${styles.main}`}>
 					<Switch>
 						<Route path='/inbox' render={() => <Inbox />} />
 						<Route path='/today' render={() => <Today />} />
@@ -61,9 +61,6 @@ const App = ({ ...props }) => {
 						<Route path='/' exact render={() => <Inbox />} />
 					</Switch>
 				</main>
-				<footer className={`${styles.footer}`}>
-				
-				</footer>
 			</div>
 	)
 }
