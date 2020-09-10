@@ -3,6 +3,8 @@
     grid-template: 
         'check text change delete'
         /30px  1fr  70px  30px;
+    align-items: center;
+    justify-items: center;
 
     margin-bottom: var(--size_s);
     padding: var(--size_s) 0;
@@ -16,10 +18,11 @@
         width: var(--size_m_double);
         height: var(--size_m_double);
 
-        background-color: var(--light);
         border: 1px solid var(--dark);
         border-radius: 50%;
-
+        margin: 0;
+        
+        background-color: var(--light);
         cursor: pointer;
 
         &.success {
@@ -29,7 +32,8 @@
 
     & .todoBody {
         grid-area: text;
-        flex-grow: 1;
+        justify-self: start;
+
 
         background-color: var(--main);
         color: var(--font_main_color);
