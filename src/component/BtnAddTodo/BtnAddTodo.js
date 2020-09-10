@@ -4,10 +4,11 @@ import { compose } from 'redux'
 import styles from './BtnAddTodo.module.scss'
 
 
-const BtnAddTodo = ({ ...props }) => {
+const BtnAddTodo = ({ setActiveField, ...props }) => {
 	return (
 		<button 
 			className={`${styles.BtnAddTodo}`}
+			onClick={() => setActiveField(1)}
 			{...props}>
 
 			<span className={`${styles.iconAdd}`}></span>

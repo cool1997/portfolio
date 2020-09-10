@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import { compose } from 'redux'
 
 import { NewTodoItem } from '../NewTodoItem/NewTodoItem'
@@ -8,11 +8,18 @@ import styles from './Inbox.module.scss'
 
 
 const Inbox = ({ ...props }) => {
+	const [activeField, setActiveField] = useState(null)
+
+
 	return (
 		<section className={`${styles.Inbox}`}>
 			<h2 className={`${styles.title}`}>Входящие</h2>
-			<TodoList />
-			<NewTodoItem />
+			<TodoList 
+				activeField={activeField} 
+				setActiveField={setActiveField}/>
+			<NewTodoItem 
+				activeField={activeField} 
+				setActiveField={setActiveField}/>
 		</section>
 	)
 }

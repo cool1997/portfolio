@@ -10,7 +10,7 @@ import { maxLengthCreator } from '../../common/utils/validators'
 import styles from './FormTodoItem.module.scss'
 
 
-const FormTodoItem = ({ text=``, handleSubmit, initialize, cancelClick, ...props }) => {
+const FormTodoItem = ({ text=``, saveFieldClick, handleSubmit, initialize, setActiveField, ...props }) => {
 	const dispatch = useDispatch()
 
 	const fieldRef = useRef(null)
@@ -35,15 +35,17 @@ const FormTodoItem = ({ text=``, handleSubmit, initialize, cancelClick, ...props
 
 	const Handle = {
 		onSubmit: (formData) => {
-			dispatch(sendTodoItem({ text: formData.todo }))
-			dispatch(reset(`FormTodoItem`))
-			setValueField(``)
-			fieldRef.current.innerText = ``
-			fieldRef.current.focus()
+			if(!text) {
+				dispatch(sendTodoItem({ text: formData.todo }))
+				dispatch(reset(`FormTodoItem`))
+				setValueField(``)
+				fieldRef.current.innerText = ``
+				fieldRef.current.focus()
+			} else {
+				saveFieldClick(valueField)
+				setActiveField(null)
+			}
 		},
-		// toggleActivate: () => {
-		// 	setActive((prev) => !prev)
-		// },
 		changeField: (evt) => {
 			setValueField(evt.target.innerText)
 		},
@@ -96,12 +98,21 @@ const FormTodoItem = ({ text=``, handleSubmit, initialize, cancelClick, ...props
 					autoComplete="off" />
 			</div>
 			<div className={`${styles.containerBtn}`}>
-				<button className={`${styles.btn} ${styles.send}`}>
-					Добавить задачу
-				</button>
+				{text 
+					? <button className={`${styles.btn} ${styles.send}`}>
+						Сохранить
+					</button>
+					: <button className={`${styles.btn} ${styles.send}`}>
+						Добавить задачу
+					</button>
+				}
+				
 				<button 
 					className={`${styles.btn} ${styles.cancel}`}
-					onClick={Handle.cancel, cancelClick}
+					onClick={() => {
+						Handle.cancel()
+						setActiveField(null)
+					}}
 					type={`button`}>
 					Отмена
 				</button>
