@@ -1,3 +1,5 @@
+
+
 import React, { memo, useState, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { compose } from 'redux'
@@ -10,12 +12,12 @@ import { maxLengthCreator } from '../../common/utils/validators'
 import styles from './FormTodoItem.module.scss'
 
 
-const FormTodoItem = ({ text=``, saveFieldClick, handleSubmit, initialize, setActiveField, ...props }) => {
+const FormTodoItem = ({ text=``, active=true, saveFieldClick, handleSubmit, initialize, setActiveField, ...props }) => {
 	const dispatch = useDispatch()
 
 	const fieldRef = useRef(null)
+	const qwe = useRef(null)
 
-	const [active, setActive] = useState(true)
 	const [focusField, setFocusField] = useState(false)
 	const [valueField, setValueField] = useState(text)
 	
@@ -27,9 +29,10 @@ const FormTodoItem = ({ text=``, saveFieldClick, handleSubmit, initialize, setAc
 	useEffect(() => {
 		active && Handle.focusField()
 	}, [active])
-
+	
 	useEffect(() => {
 		fieldRef.current.innerText = text
+		Handle.setCursorPosition(qwe, fieldRef.current.textContent.length)
 	}, [text])
 
 
@@ -58,12 +61,34 @@ const FormTodoItem = ({ text=``, saveFieldClick, handleSubmit, initialize, setAc
 		cancel: () => {
 			fieldRef.current.innerText = text
 			setValueField(text)
-			setActive(false)
+			setActiveField(null)
 
 			if(!text) {
 				dispatch(reset(`FormTodoItem`))
 			}
-		}
+		},
+
+		setCursorPosition: (parent, position) => {
+			let child = parent.current.firstChild
+			while(position > 0) {
+				let length = child.textContent.length
+				if(position > length) {
+					position -= length
+					child = child.nextSibling
+				}
+				else {
+					if(child.nodeType === 3) return document.getSelection().collapse(child, position)
+					child = child.firstChild
+				}
+			}
+		},
+		
+		// setCursorPosition: (ref) => {
+		// 	let length = ref.current.textContent.length
+
+		// 	if(ref.nodeType == 3) return document.getSelection().collapse(ref, length)
+		// 	ref = ref.firstChild
+		// }
 	}
 
 
@@ -79,6 +104,7 @@ const FormTodoItem = ({ text=``, saveFieldClick, handleSubmit, initialize, setAc
 					${styles.containerField}
 					${focusField ? styles.active : ``}
 				`}
+				ref={qwe}
 				onClick={Handle.focusField}>
 				<div
 					className={`${styles.field}`}

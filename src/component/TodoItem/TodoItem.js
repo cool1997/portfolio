@@ -32,6 +32,7 @@ const TodoItem = ({ setActiveField, active, text, id, completed, ...props }) => 
         ? <FormTodoItem 
             text={text} 
             id={id} 
+            active={active}
             saveFieldClick={Handle.changeField}
             setActiveField={setActiveField} />
 
