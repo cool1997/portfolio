@@ -32,8 +32,7 @@
 
     & .todoBody {
         grid-area: text;
-        justify-self: start;
-
+        justify-self: stretch;
 
         background-color: var(--main);
         color: var(--font_main_color);
@@ -42,7 +41,6 @@
         resize: none;
 
         word-break: break-all;
-        
     }
 
     & .btn {

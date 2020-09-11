@@ -18,7 +18,7 @@ const TodoItem = ({ setActiveField, active, text, id, completed, ...props }) => 
         changeField: (text) => {
             dispatch(changeTodoItemText({ text, id }))
         },
-        toggleCompleted: (id) => {
+        toggleCompleted: () => {
             dispatch(toggleCompleted({ id }))
         },
         deleteTodoItem: (id) => {
@@ -46,11 +46,13 @@ const TodoItem = ({ setActiveField, active, text, id, completed, ...props }) => 
                     className={`visually-hidden`}
                     checked={completed}
                     type='checkbox'
-                    onChange={() => Handle.toggleCompleted(id)}/>
+                    onChange={Handle.toggleCompleted}/>
             </label>
             <div 
                 className={`${styles.todoBody}`}
                 ref={inputBodyRef}
+                onClick={Handle.toggleCompleted}
+                onDoubleClick={() => setActiveField(id)}
                 onChange={evt => Handle.changeField(evt.target.value, id)}>
                 {text}
             </div>
