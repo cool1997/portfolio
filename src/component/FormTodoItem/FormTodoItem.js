@@ -27,7 +27,10 @@ const FormTodoItem = ({ text=``, active=true, saveFieldClick, handleSubmit, init
 	}, [valueField])
 
 	useEffect(() => {
-		active && Handle.focusField()
+		if(active) {
+			Handle.focusField()
+			Handle.setCursorPosition(qwe, fieldRef.current.textContent.length)
+		}
 	}, [active])
 	
 	useEffect(() => {
