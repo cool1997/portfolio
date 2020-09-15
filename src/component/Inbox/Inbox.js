@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react'
 import { compose } from 'redux'
 
+import { Controls } from '../Controls/Controls'
 import { NewTodoItem } from '../NewTodoItem/NewTodoItem'
 import { TodoList } from '../TodoList/TodoList'
 
@@ -13,7 +14,11 @@ const Inbox = ({ ...props }) => {
 
 	return (
 		<section className={`${styles.Inbox}`}>
-			<h2 className={`${styles.title}`}>Входящие</h2>
+			<div className={`${styles.headerContainer}`}>
+				<h2 className={`${styles.title}`}>Входящие</h2>
+				<Controls />
+			</div>
+
 			<TodoList 
 				activeField={activeField} 
 				setActiveField={setActiveField}/>

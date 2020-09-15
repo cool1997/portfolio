@@ -54,12 +54,14 @@ const App = ({ ...props }) => {
 				</header>
 				{isActiveNavbar && <Navbar className={styles.nav}/>}
 				<main className={`${styles.main}`}>
-					<Switch>
-						<Route path='/inbox' render={() => <Inbox />} />
-						<Route path='/today' render={() => <Today />} />
-						<Route path='/calendar' render={() => <Calendar />} />
-						<Route path='/' exact render={() => <Inbox />} />
-					</Switch>
+					<div className={`${styles.mainContainer}`}>
+						<Switch>
+							<Route path='/inbox' render={() => <Inbox />} />
+							<Route path='/today' render={() => <Today />} />
+							<Route path='/calendar' render={() => <Calendar />} />
+							<Route path='/' exact render={() => <Inbox />} />
+						</Switch>
+					</div>
 				</main>
 			</div>
 	)

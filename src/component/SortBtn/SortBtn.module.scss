@@ -1,0 +1,10 @@
+.SortBtn {
+  background-color: var(--main);
+  border: none;
+  border-bottom: 1px solid var(--light);
+  color: var(--font_main_color);
+
+  & .active {
+
+  }
+}

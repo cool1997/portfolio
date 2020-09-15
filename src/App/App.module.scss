@@ -27,7 +27,16 @@
 
     & .main {
         grid-area: main;
+        display: flex;
+        width: 100%;
+
         padding: var(--size_m_third) var(--size_l_double);
+        justify-content: center;
+        
+        & .mainContainer {
+            max-width: 900px;
+            flex-grow: 1;
+        }
     }
 }
 
@@ -36,6 +45,6 @@
         grid-template:
             'header header header' 45px 
             'nav    main   main'
-            /auto 2fr 2fr;
+            /auto  1fr    1fr;
     }
 }

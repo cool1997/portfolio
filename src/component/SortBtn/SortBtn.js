@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { sortBy, doReverseSort } from '../../slice/todos/todoSlice'
 
+import styles from './SortBtn.module.scss'
+
 
 const SortBtn = ({ type, ...props }) => {
 	const dispatch = useDispatch()
@@ -20,7 +22,7 @@ const SortBtn = ({ type, ...props }) => {
 
 
 	return (
-		<button className={`btn btn-outline-primary ${type === sortType ? `active` : ``}`} onClick={() => onSortedClick(type)}>{type}</button>
+		<button className={`${styles.SortBtn} ${type === sortType ? styles.active : ``}`} onClick={() => onSortedClick(type)}>{type}</button>
 	)
 }
 
